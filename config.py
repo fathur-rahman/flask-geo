@@ -1,6 +1,8 @@
 import os
+from environs import Env
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+env = Env()
 
 
 class Config(object):
@@ -11,3 +13,4 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = 'postgresql://' + USERNAME + ':' + PASSWORD + '@' + HOST + '/' + DATABASE
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_RECORD_QUERIES = True
+    DEBUG = True
