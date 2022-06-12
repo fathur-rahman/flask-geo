@@ -22,6 +22,10 @@ python3 -m venv venv
 ```
 flask run 
 ```
+4. migrasi
+```
+flask db upgrade 
+```
 
 
 ### SETELAH BERHASIL RUN FLASK
