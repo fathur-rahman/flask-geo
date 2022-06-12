@@ -1,4 +1,4 @@
-# geofix
+# GEOFIX CHALLANGE
 
 1. kalo belum ada venv
 ```
