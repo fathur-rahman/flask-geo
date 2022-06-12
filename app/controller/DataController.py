@@ -19,7 +19,7 @@ class DataController(Resource):
     def post(self):
         try:
             data = DataRepository().store(request.json)   
-            data = DataRepository().get(id = str(data.id))
+            data = DataRepository().get(id = str(data.id), return_as_json=True)
             # data = DataRepository().get(id = str(data.id), return_as_json=True)
 
             return data
