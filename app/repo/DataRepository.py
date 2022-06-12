@@ -1,4 +1,4 @@
-from app.jsonifier import jsonifier
+from app.jsonifier import Jsonifier
 from app.repo.Repository import Repository
 from app.models.models import BE_PYTHON
 
@@ -14,4 +14,4 @@ class DataRepository(Repository):
         return DataRepository.__instance
 
     def getAll(self):        
-        return jsonifier().jsonifier(BE_PYTHON.query.all())
+        return Jsonifier().jsonifier(BE_PYTHON.query.all())

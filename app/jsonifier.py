@@ -1,22 +1,20 @@
 from datetime import datetime
 import json, geojson
-# import geoalchemy2
 from geoalchemy2 import WKBElement
-from geoalchemy2 import shape 
-from shapely.geometry import mapping
+from geoalchemy2 import shape as ga2shape
+from shapely.geometry import mapping, shape
 
-class jsonifier():
+class Jsonifier():
     def jsonifier(self, obj):
         if isinstance(obj, list):
-            return list(map(self.singular_jsonifier, obj))
-        else:
-            return self.singular_jsonifier(obj)
+            return list(map(self.obj_to_json, obj))
 
-    def singular_jsonifier(self, obj):
+        return map(self.obj_to_json, obj)
+
+    def obj_to_json(self, obj):
         x = {}
         for attr in obj.__dict__:
             z = getattr(obj, attr)
-            print(attr, ":", z)
             if attr == '_sa_instance_state': 
                 continue
 
@@ -27,7 +25,19 @@ class jsonifier():
                 z = int(z)
 
             if isinstance(z, WKBElement):
-                z = mapping(shape.to_shape(z))
+                z = mapping(ga2shape.to_shape(z))
             
             x[attr] = z
         return x
+    
+    def json_to_shape(self, json):
+        x = ga2shape.from_shape(shape(json))
+        return x
+
+    def json_to_object(self, obj, req_json):
+        for key, value in req_json.items():
+            if not isinstance(value, dict):
+                setattr(obj, str(key), value)
+            elif 'coordinates' in value or 'geometry' in value:
+                setattr(obj, str(key), Jsonifier().json_to_shape(value) )
+        return obj
