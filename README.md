@@ -16,7 +16,7 @@ python3 -m venv venv
  ```
 3. install semua dependency ke venv
 ```
- install -r requirements
+pip install -r requirements
 ```
 4. nyalakan flask
 ```
