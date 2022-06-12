@@ -19,6 +19,14 @@ flask run
 
 
 ## SETELAH BERHASIL RUN FLASK
+ENDPOINT YANG DAPAT DIGUNAKAN
+```
+localhost:5000/data
+```
+```
+localhost:5000/data/{{id}}
+```
+
 ```
 {
     "name": "GEOFIX",
