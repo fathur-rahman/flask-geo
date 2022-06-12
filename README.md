@@ -12,7 +12,7 @@ python3 -m venv venv
 ```
 2. Nyalakan venv
  ```
- venv/bin/activate
+ source venv/bin/activate
  ```
 3. install semua dependency ke venv
 ```
