@@ -1,10 +1,11 @@
 # GEOFIX CHALLANGE
 
+### INSTALASI API 
 1. kalo belum ada venv
 ```
 python3 -m venv venv
 ```
-2. kalo sudah, nyalakan
+2. Nyalakan venv
  ```
  venv/bin/activate
  ```
@@ -18,7 +19,7 @@ flask run
 ```
 
 
-## SETELAH BERHASIL RUN FLASK
+### SETELAH BERHASIL RUN FLASK
 ENDPOINT YANG DAPAT DIGUNAKAN
 ```
 localhost:5000/data
