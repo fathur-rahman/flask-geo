@@ -26,7 +26,7 @@ localhost:5000/data
 ```
 localhost:5000/data/{{id}}
 ```
-
+PAYLOAD JSON
 ```
 {
     "name": "GEOFIX",
