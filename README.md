@@ -1,7 +1,7 @@
 # FLASK GEOALCHEMY2 
 
-### INSTALASI EXTENSI POSTGIS
-1. kalo belum ada postgis di postgres
+### INSTALASI EKSTENSI POSTGIS
+1. kalo belum ada ekstensi postgis di postgres
 ```
 CREATE EXTENSION postgis;
 ```
