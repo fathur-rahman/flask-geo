@@ -1,6 +1,11 @@
 # GEOFIX CHALLANGE
 
-### INSTALASI API 
+### INSTALASI EXTENSI POSTGIS
+1. kalo belum ada venv
+```
+CREATE EXTENSION postgis;
+```
+### INSTALASI API FLASK
 1. kalo belum ada venv
 ```
 python3 -m venv venv
