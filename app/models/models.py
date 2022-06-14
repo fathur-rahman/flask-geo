@@ -13,7 +13,7 @@ class BE_PYTHON(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return '<User {}>'.format(self.name)
+        return '<DATA {}>'.format(self.name)
 
 class detail(db.Model):
     id = db.Column(db.String(36), primary_key=True)
