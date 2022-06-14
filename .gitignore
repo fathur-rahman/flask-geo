@@ -1,2 +1,5 @@
 venv
-__pycache__/
+app/models/__pycache__/
+migrations/versions/__pycache__/
+app/models/__pycache__/models.cpython-310.pyc
+migrations/versions/__pycache__/61e1ebb9387a_table_be.cpython-310.pyc

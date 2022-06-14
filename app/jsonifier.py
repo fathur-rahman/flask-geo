@@ -13,7 +13,9 @@ class Jsonifier():
 
     def obj_to_json(self, obj):
         x = {}
+        # print(obj.be_python_detail.id)
         for attr in obj.__dict__:
+            print(obj)
             z = getattr(obj, attr)
             if attr == '_sa_instance_state': 
                 continue

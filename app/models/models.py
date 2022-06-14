@@ -14,3 +14,15 @@ class BE_PYTHON(db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.name)
+
+class detail(db.Model):
+    id = db.Column(db.String(36), primary_key=True)
+    name = db.Column(db.String(230), nullable=True)
+    be_python_id = db.Column(db.String(36), db.ForeignKey(BE_PYTHON.id), nullable=True)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow)
+    be_python_detail = db.relationship("BE_PYTHON", backref="be_detail_transaction")
+
+
+    def __repr__(self):
+        return '<detail {}>'.format(self.name)
