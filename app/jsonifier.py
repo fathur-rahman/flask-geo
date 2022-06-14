@@ -13,31 +13,31 @@ class Jsonifier():
         return map(self.obj_to_json, obj)
 
     def obj_to_json(self, obj):
-        x = {}
+        json = {}
 
-        for attr in obj.__dict__:
-            z = getattr(obj, attr)
-            if '_sa' in attr: 
+        for dict_attr in obj.__dict__:
+            value = getattr(obj, dict_attr)
+            if '_sa' in dict_attr: 
                 continue
 
-            if isinstance(z, datetime):
-                z = datetime.strftime(z, format='%Y-%m-%d %H:%M:%S')
+            if isinstance(value, datetime):
+                value = datetime.strftime(value, format='%Y-%m-%d %H:%M:%S')
 
-            if isinstance(z, float):
-                z = int(z)
+            if isinstance(value, float):
+                value = int(value)
 
-            if isinstance(z, WKBElement):
-                z = mapping(ga2shape.to_shape(z))
+            if isinstance(value, WKBElement):
+                value = mapping(ga2shape.to_shape(value))
             
-            x[attr] = z
+            json[dict_attr] = value
 
-        for attributes in dir(obj):
-            a= attributes.split('_')
-            zaa = getattr(obj,attributes)
-            if 'detail' in a and '_' in attributes:
-                x[attributes] = self.obj_to_json(zaa) 
+        for all_attr in dir(obj):
+            attrsplit= all_attr.split('_')
+            fk_value = getattr(obj,all_attr)
+            if 'detail' in attrsplit and '_' in all_attr:
+                json[all_attr] = self.obj_to_json(fk_value) 
              
-        return x
+        return json
     
     def json_to_shape(self, json):
         x = ga2shape.from_shape(shape(json))
